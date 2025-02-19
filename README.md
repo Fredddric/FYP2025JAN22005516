@@ -29,8 +29,8 @@ FaceTrack Pro is a sophisticated web-based facial analysis system that provides 
 
 1. Clone the repository:
 ```bash
-git clone [repository-url]
-cd facetrack-pro
+git clone https://github.com/Fredddric/FYP2025JAN22005516.git
+cd FYP2025JAN22005516
 ```
 
 2. Install dependencies:
