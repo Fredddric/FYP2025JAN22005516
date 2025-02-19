@@ -108,7 +108,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Open-source community
 
 ## Author
-Fredric Lau Yixen
+Fredric Lau
 Sunway University
 Final Year Project - 2025
 
