@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Facial Recognition System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-camera"></i>
+      <h2>FaceTrack Pro</h2>
+    </div>
+    <nav>
+      <button class="nav-btn active" data-tab="live"><i class="fas fa-video"></i> Live Feed</button>
+      <button class="nav-btn" data-tab="analytics"><i class="fas fa-chart-bar"></i> Analytics</button>
+      <button class="nav-btn" data-tab="recordings"><i class="fas fa-history"></i> Session History</button>
+      <button class="nav-btn" data-tab="settings"><i class="fas fa-cog"></i> Settings</button>
+    </nav>
+    <div class="session-info">
+      <p>Session Duration: <span id="sessionTime">00:00:00</span></p>
+      <p>Faces Detected: <span id="totalFaces">0</span></p>
+    </div>
+  </div>
+
+  <main>
+    <div class="tab-content active" id="live">
+      <div class="header">
+        <h1>Real-Time Facial Analysis</h1>
+        <div class="controls">
+          <button id="recordBtn" class="btn"><i class="fas fa-record-vinyl"></i> Record Session</button>
+          <button id="toggleBtn" class="btn"><i class="fas fa-pause"></i> Pause</button>
+          <button id="snapshotBtn" class="btn"><i class="fas fa-camera"></i> Snapshot</button>
+        </div>
+      </div>
+
+      <div class="content-wrapper">
+        <div class="video-section">
+          <div class="video-container">
+            <video id="video" width="720" height="560" autoplay muted playsinline></video>
+            <div class="overlay-stats" id="overlayStats"></div>
+          </div>
+          
+          <div class="stats-card" id="currentStats">
+            <h3><i class="fas fa-users"></i> Current Detection</h3>
+            <div id="stats"></div>
+          </div>
+        </div>
+
+        <div class="metrics-section">
+          <div class="stats-card">
+            <h3><i class="fas fa-chart-line"></i> Real-time Metrics</h3>
+            <div class="chart-container">
+              <canvas id="emotionChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="analytics">
+      <div class="header">
+        <h1>Analytics Dashboard</h1>
+      </div>
+      <div class="analytics-grid">
+        <div class="analytics-card">
+          <h3><i class="fas fa-users"></i> Age Distribution</h3>
+          <div class="chart-container">
+            <canvas id="ageChart"></canvas>
+          </div>
+        </div>
+        <div class="analytics-card">
+          <h3><i class="fas fa-venus-mars"></i> Gender Distribution</h3>
+          <div class="chart-container">
+            <canvas id="genderChart"></canvas>
+          </div>
+        </div>
+        <div class="analytics-card">
+          <h3><i class="fas fa-chart-line"></i> Emotion Trends</h3>
+          <div class="chart-container">
+            <canvas id="emotionTrendChart"></canvas>
+          </div>
+        </div>
+        <div class="analytics-card">
+          <h3><i class="fas fa-chart-pie"></i> Detection Statistics</h3>
+          <div id="detectionStats" class="detection-stats">
+            <div class="stat-item">
+              <span class="stat-label">Total Sessions</span>
+              <span class="stat-value">1</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Total Detections</span>
+              <span class="stat-value" id="totalDetections">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Average Age</span>
+              <span class="stat-value" id="averageAge">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Detection Rate</span>
+              <span class="stat-value" id="detectionRate">0/s</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="recordings">
+      <div class="header">
+        <h1>Session History</h1>
+      </div>
+      <div class="recordings-list" id="recordingsList">
+        <!-- Session recordings will be listed here -->
+      </div>
+    </div>
+
+    <div class="tab-content" id="settings">
+      <div class="header">
+        <h1>Settings</h1>
+      </div>
+      <div class="settings-grid">
+        <div class="settings-card">
+          <h3>Detection Settings</h3>
+          <div class="setting-item">
+            <label>Detection Interval (ms)</label>
+            <input type="range" id="detectionInterval" min="100" max="1000" step="100" value="100">
+            <span id="intervalValue">100</span>
+          </div>
+          <div class="setting-item">
+            <label>Minimum Detection Confidence</label>
+            <input type="range" id="minConfidence" min="0" max="1" step="0.1" value="0.5">
+            <span id="confidenceValue">0.5</span>
+          </div>
+        </div>
+        
+        <div class="settings-card">
+          <h3>Display Settings</h3>
+          <div class="setting-item">
+            <label>Show Face Landmarks</label>
+            <input type="checkbox" id="showLandmarks" checked>
+          </div>
+          <div class="setting-item">
+            <label>Show Expressions</label>
+            <input type="checkbox" id="showExpressions" checked>
+          </div>
+          <div class="setting-item">
+            <label>Show Age/Gender</label>
+            <input type="checkbox" id="showAgeGender" checked>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
