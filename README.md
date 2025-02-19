@@ -98,9 +98,6 @@ facetrack-pro/
 ## Contributing
 Contributions are welcome! Please read our contributing guidelines before submitting pull requests.
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## Acknowledgments
 - face-api.js team for the core detection models
 - TensorFlow.js community
